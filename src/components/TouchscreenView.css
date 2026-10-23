@@ -1,0 +1,26 @@
+/* View tabs (3D model / Touchscreen) */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  font-size: 14px;
+  background: var(--panel);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: color 0.15s, background 0.15s;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.is-active { background: var(--moss-deep); border-color: var(--moss-deep); color: #f6f1e6; }
+
+/* On the touchscreen tab, hide the dashboard sections but keep them mounted so the 3D model keeps its state */
+.app-shell.tab-touchscreen > :not(.topbar):not(.tabs):not(.touch-view):not(.toast) { display: none; }
+
+/* Touchscreen tab */
+.touch-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.touch-head .btn { text-decoration: none; }
+.touch-stage { width: 100%; }
+.touch-frame { margin: 0 auto; overflow: hidden; border-radius: 16px; }
+.touch-frame iframe { display: block; border: 0; transform-origin: 0 0; }
